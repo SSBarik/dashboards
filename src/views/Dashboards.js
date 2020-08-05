@@ -2,22 +2,30 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { data } from '../components/data.js';
 import Loading from '../components/Loading';
-import Main from '../containers/Main'
-import ShowInfo from '../containers/ShowInfo'
+import Main from '../components/Main'
+import ShowInfo from '../components/ShowInfo'
+import Title from '../components/Title'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    textAlign: 'left',
   },
   paper: {
     padding: theme.spacing(0),
     textAlign: 'left',
     color: theme.palette.text.secondary,
+  },
+  title:{
+    marginTop: 20,
+    marginBottom:20,
   },
 }));
 
@@ -44,11 +52,11 @@ export default function PageNotFound() {
       search();
   }, []);
 
-  if(main){
+  if(true){
     return (
       <div className={classes.root}>
-        <h1>HQ Summary</h1>
         <Container maxWidth="lg">
+          <Title title="Albuquerque HQ Summary" />
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Paper className={classes.paper}>
@@ -56,9 +64,7 @@ export default function PageNotFound() {
               </Paper>
             </Grid>
             <Grid item md={6}>
-              <Paper className={classes.paper} elevation={0}>
-                <ShowInfo titleOne="Summary" titleTwo="Learnings" mockData={data.hq} />
-              </Paper>
+                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={data.hq} />
             </Grid>
           </Grid>
         </Container>

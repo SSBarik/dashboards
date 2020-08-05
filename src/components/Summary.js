@@ -31,8 +31,10 @@ const Summary = ({mockData}) =>  {
       {mockData && mockData.map((data, key) => {
         return (
           <ListItem key={key} elevation={1}>
-            <ListItemIcon> <DoubleArrowIcon /> </ListItemIcon>
-            <ListItemText>{data}</ListItemText>
+            <ListItemIcon> <DoubleArrowIcon color="primary" /> </ListItemIcon>
+            <ListItemText>
+              <Typography variant="body2">{data}</Typography>
+            </ListItemText>
           </ListItem>
         );
       })}

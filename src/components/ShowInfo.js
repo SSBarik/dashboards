@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import Summary from '../components/Summary';
+import Summary from './Summary';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,7 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    color: theme.palette.text.secondary,
+    textAlign: 'left',
+    color: theme.palette.text.primary,
+    backgroundColor: 'transparent',
   },
 }));
 
@@ -18,14 +22,14 @@ const useStyles = makeStyles((theme) => ({
 const Main = ({titleOne, titleTwo, mockData}) => {
   const classes = useStyles(); 
 
-  
-
   return (
     <div className={classes.root}>
-      {titleOne}
-      <Summary mockData={mockData.summary} />
-      <p>{titleTwo}</p>
-      {mockData.learnings}
+      <Paper className={classes.paper} elevation={0}>
+        <Typography variant="h6">{titleOne}</Typography>
+        <Summary mockData={mockData.summary} />
+        <Typography variant="h6">{titleTwo}</Typography>
+        <Typography variant="body2">{mockData.learnings}</Typography>
+      </Paper> 
     </div>
   );
 };

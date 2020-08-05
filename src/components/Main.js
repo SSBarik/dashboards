@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import TableHeader from '../components/TableHeader';
-import TableElement from '../components/TableElement';
+import TableHeader from './TableHeader';
+import TableElement from './TableElement';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
