@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AppBar from './components/navigation/AppBar'
+import ResAppBar from './components/ResAppBar'
 import Dashboards from './views/Dashboards'
 import PageNotFound from './views/PageNotFound'
 import './App.css';

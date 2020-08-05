@@ -1,93 +1,129 @@
 export const data =
 {
   "hq":{
-     "table":[
+      "date":{
+         "start":"Jul 12",
+         "end":"Jul 18",
+      },
+      "info": "4th Floor had the highest density at 69 sq. ft per person",
+      "table":[
         {
-           "company":"Twitter Inc",
-           "ticker":"TWTR",
-           "stockPrice":"22.76 USD",
-           "timeElapsed":"5 sec ago"
+           "space":"4th Floor",
+           "area":31000,
+           "density":69,
         },
         {
-           "company":"Square Inc",
-           "ticker":"SQ",
-           "stockPrice":"45.28 USD",
-           "timeElapsed":"10 sec ago"
-        },
-        {
-           "company":"Shopify Inc",
-           "ticker":"SHOP",
-           "stockPrice":"341.79 USD",
-           "timeElapsed":"3 sec ago"
-        },
-        {
-           "company":"Sunrun Inc",
-           "ticker":"RUN",
-           "stockPrice":"9.87 USD",
-           "timeElapsed":"4 sec ago"
-        },
-        {
-           "company":"Adobe Inc",
-           "ticker":"ADBE",
-           "stockPrice":"300.99 USD",
-           "timeElapsed":"10 sec ago"
-        },
-        {
-           "company":"HubSpot Inc",
-           "ticker":"HUBS",
-           "stockPrice":"115.22 USD",
-           "timeElapsed":"12 sec ago"
-        }
+         "space":"Ames HQ",
+         "area":124000,
+         "density":140,
+         },
+         ,
+         {
+          "space":"3rd Floor",
+          "area":31000,
+          "density":168,
+          },
+          ,
+          {
+           "space":"2nd Floor",
+           "area":31000,
+           "density":172,
+           },
+           ,
+           {
+            "space":"1st Floor",
+            "area":31000,
+            "density":175,
+            }   
      ],
      "summary":[
-        "sndsndin dw nd oi widwio dj 4w iosdowd mwdw d wd ow dwh diw  ",
-        "4d5sd5a 4sda sd sadsdsbdusahds a  ds4 d4"
+        "The North American average is currently 150-175 sq. ft per person",
+        "Open office spaces for tech companies typically use even less at 125-175 sq."
      ],
-     "learnings":"wPASopo dw nd oi widwio dj 4w iosdowd mwdw d wd ow dwh diw  "
+     "learnings":"We're tracking well towards our annual goal, but we're getting some complains about noise. On the 3rd floor, we might need to consider a team sift since Sales occupies a large swath of our desk areas there."
   },
-  "conf":{
-     "table":[
-        {
-           "company":"5445454Twitter Inc",
-           "ticker":"TWTR",
-           "stockPrice":"22.76 USD",
-           "timeElapsed":"5 sec ago"
-        },
-        {
-           "company":"26291Square Inc",
-           "ticker":"SQ",
-           "stockPrice":"45.28 USD",
-           "timeElapsed":"10 sec ago"
-        },
-        {
-           "company":"s5a15Shopify Inc",
-           "ticker":"SHOP",
-           "stockPrice":"341.79 USD",
-           "timeElapsed":"3 sec ago"
-        },
-        {
-           "company":"21Sunrun Inc",
-           "ticker":"RUN",
-           "stockPrice":"9.87 USD",
-           "timeElapsed":"4 sec ago"
-        },
-        {
-           "company":"sa2Adobe Inc",
-           "ticker":"ADBE",
-           "stockPrice":"300.99 USD",
-           "timeElapsed":"10 sec ago"
-        },
-        {
-           "company":"58HubSpot Inc",
-           "ticker":"HUBS",
-           "stockPrice":"115.22 USD",
-           "timeElapsed":"12 sec ago"
-        }
-     ],
-     "summary":[
-        "16161 51616 551 sndsndin dw nd oi widwio dj 4w iosdowd mwdw d wd ow dwh diw  ",
-        "asdnnsjkdnsjkdnskjnda 4d5sd5a 4sda sd sadsdsbdusahds a  ds4 d4"
-     ],
-     "learnings":"215116161 sndsndin dw nd oi widwio dj 4w iosdowd mwdw d wd ow dwh diw  "
-  }
+  "conference_room":{
+      "usage":{
+         "date":{
+            "start":"Jul 12",
+            "end":"Jul 18",
+         },
+         
+        "table":[
+           {
+              "room":"Room 204",
+              "usage":91,
+           },
+           {
+               "room":"Room 208",
+               "usage":91,
+           },
+           {
+               "room":"Room 205",
+               "usage":85,
+           },
+           {
+               "room":"Womens Room",
+               "usage":84,
+           },
+           {
+               "room":"Room 202",
+               "usage":75,
+           },
+           {
+               "room":"Room 207",
+               "usage":72,
+           },
+           {
+               "room":"Room 206",
+               "usage":68,
+           }
+        ],
+        "summary":[
+           "Density considers 70% an over-utilized space. If you factor in room transition time, 70% means it's highly unlikely there's an oppurtunity for someone to have an impromptu meeting in the space.",
+        ],
+        "learnings":"There's an over uthilization problem on this floor and we may want to explore phone booths or dividing up these rooms."
+      },
+      "occupancy":{
+         "date":{
+            "start":"Jul 12",
+            "end":"Jul 18",
+         },
+         
+        "table":[
+           {
+              "people":1,
+              "occupancy":28,
+           },
+           {
+               "people":1,
+              "occupancy":28,
+           },
+           {
+               "room":"Room 205",
+               "usage":85,
+           },
+           {
+               "room":"Womens Room",
+               "usage":84,
+           },
+           {
+               "room":"Room 202",
+               "usage":75,
+           },
+           {
+               "room":"Room 207",
+               "usage":72,
+           },
+           {
+               "room":"Room 206",
+               "usage":68,
+           }
+        ],
+        "summary":[
+           "Density considers 70% an over-utilized space. If you factor in room transition time, 70% means it's highly unlikely there's an oppurtunity for someone to have an impromptu meeting in the space.",
+        ],
+        "learnings":"There's an over uthilization problem on this floor and we may want to explore phone booths or dividing up these rooms."
+      }
+   }
 };
