@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { data } from '../components/data.js';
+import Loading from '../components/Loading';
 import Main from '../containers/Main'
 import ShowInfo from '../containers/ShowInfo'
 
@@ -23,41 +24,50 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PageNotFound() {
   const classes = useStyles();
-  const [mocky, setMocky] = useState([data]);
-  const [main, setMain] = useState([data.hq]);
-  const [conf, setConf] = useState([data.conference_room]);
+  // const [mocky, setMocky] = useState([]);
+  // const [main, setMain] = useState([]);
+  // const [conf, setConf] = useState([]);
+  const [mocky, setMocky] = useState();
+  const [main, setMain] = useState();
+  const [conf, setConf] = useState();
   
 
-  // useEffect(() => {
-  //     const search = async () => {
-  //       const  res  = await axios.get('https://run.mocky.io/v3/1de2b4e0-6dda-422f-8642-a5bda3a68ff5');
+  useEffect(() => {
+      const search = async () => {
+        const  res  = await axios.get('https://run.mocky.io/v3/1de2b4e0-6dda-422f-8642-a5bda3a68ff5');
         
-  //       setMocky(res.data);
-  //       setMain(res.data.hq);
-  //       setConf(res.data.conf);
+        setMocky(res.data);
+        setMain(res.data.hq);
+        setConf(res.data.conf);
 
-  //     };
-  //     search();
-  // }, []);
+      };
+      search();
+  }, []);
+
+  if(main){
+    return (
+      <div className={classes.root}>
+        <h1>HQ Summary</h1>
+        <Container maxWidth="lg">
+          <Grid container spacing={3}>
+            <Grid item md={6}>
+              <Paper className={classes.paper}>
+                <Main mockData={data.hq} />
+              </Paper>
+            </Grid>
+            <Grid item md={6}>
+              <Paper className={classes.paper} elevation={0}>
+                <ShowInfo titleOne="Summary" titleTwo="Learnings" mockData={data.hq} />
+              </Paper>
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
+    );
+  } else {
+    return (
+      <div><Loading /></div>
+    );
+  }
   
-
-  return (
-    <div className={classes.root}>
-      <h1>HQ Summary</h1>
-      <Container maxWidth="lg">
-        <Grid container spacing={3}>
-          <Grid item md={6}>
-            <Paper className={classes.paper}>
-              <Main mockData={data.hq} />
-            </Paper>
-          </Grid>
-          <Grid item md={6}>
-            <Paper className={classes.paper} elevation={0}>
-              <ShowInfo titleOne="Summary" titleTwo="Learnings" mockData={data.hq} />
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
-    </div>
-  );
 }

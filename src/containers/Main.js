@@ -23,7 +23,7 @@ const Main = ({mockData}) => {
 
   return (
     <div className={classes.root}>
-      <TableHeader count={mockData.table.length} subtitle="selected spaces" date={mockData.date} info={mockData.info} />
+      <TableHeader count={5} subtitle="selected spaces" date={mockData.date} info={mockData.info} />
 
       <Grid container spacing={3}>
         <Grid item md={12}>
