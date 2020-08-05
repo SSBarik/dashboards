@@ -17,15 +17,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     textAlign: 'left',
+    paddingTop: 50,
+    paddingBottom: 100,
   },
   paper: {
     padding: theme.spacing(0),
     textAlign: 'left',
     color: theme.palette.text.secondary,
-  },
-  title:{
-    marginTop: 20,
-    marginBottom:20,
   },
 }));
 
@@ -42,7 +40,7 @@ export default function PageNotFound() {
 
   useEffect(() => {
       const search = async () => {
-        const  res  = await axios.get('https://run.mocky.io/v3/1de2b4e0-6dda-422f-8642-a5bda3a68ff5');
+        const  res  = await axios.get('https://run.mocky.io/v3/4861b67d-5097-4187-8d4d-6cdb522c7bb0');
         
         setMocky(res.data);
         setMain(res.data.hq);
@@ -57,6 +55,18 @@ export default function PageNotFound() {
       <div className={classes.root}>
         <Container maxWidth="lg">
           <Title title="Albuquerque HQ Summary" />
+          <Grid container spacing={3}>
+            <Grid item md={6}>
+              <Paper className={classes.paper}>
+                <Main mockData={data.hq} />
+              </Paper>
+            </Grid>
+            <Grid item md={6}>
+                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={data.hq} />
+            </Grid>
+          </Grid>
+
+          <Title title="Albuquerque Conferrence Room Summary" />
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Paper className={classes.paper}>

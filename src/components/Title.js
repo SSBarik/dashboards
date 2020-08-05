@@ -7,8 +7,8 @@ import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   title:{
-    marginTop: 20,
-    marginBottom:20,
+    marginTop: 50,
+    marginBottom:30,
   },
 }));
 
