@@ -20,7 +20,7 @@ export default function ErrorMsg() {
   return (
     <div className={classes.root}>
       <Container>  
-        Sorry! Seems like there's some sever issues...
+        <h1>Sorry! Seems like there's some sever issues...</h1>
       </Container>
     </div>
   );
