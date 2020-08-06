@@ -34,7 +34,7 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Trackio
+            WeTrack
           </Typography>
           <Button color="inherit"><SmsIcon />Support</Button>
           <Button color="inherit"><SettingsIcon />Admin</Button>

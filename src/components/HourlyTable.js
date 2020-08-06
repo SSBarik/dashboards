@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -19,24 +19,19 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   value: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     margin: 1,
     textAlign: 'center',
     color: "white",
     backgroundColor: '#3f51b5'
-  },
-  buttons: {
-    padding: theme.spacing(2),
-    textAlign: 'right',
-  },
+  }
 }));
 
 const HourlyTable = ({mockData}) => {
   const classes = useStyles();
-
   const time = ["9a","10a","11a","12p","1p","2p","3p","4p"];
 
-  const renderTable = mockData.table && mockData.table.map((data, key) => {
+  const renderTable = mockData && mockData.map((data, key) => {
     return (
     <Grid container key={key} spacing={0}>
       <Grid item xs={2} sm={1}>
@@ -80,15 +75,6 @@ const HourlyTable = ({mockData}) => {
         
       {renderTable}
 
-      <Box className={classes.buttons}>
-        <Button variant="outlined" color="primary">
-          Export as CSV
-        </Button>
-        
-        <Button variant="outlined" color="primary">
-          Expand
-        </Button>
-      </Box>
     </div>
   );
 }

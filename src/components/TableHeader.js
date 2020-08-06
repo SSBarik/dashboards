@@ -29,13 +29,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const TableHeader = ({count, subtitle, date, info}) => {
+const TableHeader = ({title, count, subtitle, date, info}) => {
   const classes = useStyles(); 
 
   return (
     <div className={classes.root}>
       <Paper className={classes.paper} elevation={3}>
-        <Typography variant = "h6" color="primary" >Sq ft per person summary</Typography>
+        <Typography variant = "h6" color="primary" >{title}</Typography>
         <Typography variant = "subtitle2">{count} {subtitle}</Typography>
         <Box className={classes.date}>
           <Typography variant="caption">

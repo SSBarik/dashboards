@@ -5,7 +5,7 @@ import Loading from '../components/Loading';
 import Main from '../components/Main'
 import ShowInfo from '../components/ShowInfo'
 import Title from '../components/Title'
-import HourlyTable from '../components/HourlyTable'
+import Hourly from '../components/Hourly'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -41,7 +41,7 @@ export default function PageNotFound() {
 
   useEffect(() => {
       const search = async () => {
-        const  res  = await axios.get('https://run.mocky.io/v3/4861b67d-5097-4187-8d4d-6cdb522c7bb0');
+        const  res  = await axios.get('https://run.mocky.io/v3/5c2abc43-1255-4f57-a7e5-6d4b54dba00f');
         
         setMocky(res.data);
         setMain(res.data.hq);
@@ -71,7 +71,7 @@ export default function PageNotFound() {
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Paper className={classes.hourly}>
-                <HourlyTable mockData={data.conference_room.hourly} />
+                <Hourly mockData={data.conference_room.hourly} />
               </Paper>
             </Grid>
             <Grid item md={6}>
