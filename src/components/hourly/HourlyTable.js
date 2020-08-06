@@ -27,7 +27,7 @@ const HourlyTable = ({ mockData }) => {
   const classes = useStyles();
   const time = ["9a","10a","11a","12p","1p","2p","3p","4p"];
 
-  const renderTable = mockData && mockData.map((data, key) => {
+  const renderTable = mockData.map((data, key) => {
     return (
     <Grid container key={key} spacing={0}>
       <Grid item xs={2} sm={1}>

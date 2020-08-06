@@ -34,18 +34,18 @@ const useStyles = makeStyles((theme) => ({
 const ConferenceTable = ({mockData}) => {
   const classes = useStyles();
 
-  const renderTable = mockData && mockData.map((data, key) => {
+  const renderTable = mockData.map((data, key) => {
     return (
     <Grid container key={key} spacing={0}>
-      <Grid item xs={1}>
+      <Grid item sm={1} xs={2}>
           <Paper className={classes.paper} style={{color:'blue'}} elevation={0}>
             <Avatar className={classes.small}>{data.count}</Avatar>
           </Paper>
       </Grid>
-      <Grid item xs={3}>
+      <Grid item sm={3} xs={4}>
           <Paper className={classes.paper} elevation={0}>{data.room}</Paper>
       </Grid>
-      <Grid item xs={8}>
+      <Grid item sm={8} xs={6}>
           <Paper className={classes.paper} elevation={0}>
             <ProgressBar bgcolor={"#757ce8"} completed={data.usage} postfix="%" max={100} />
           </Paper>

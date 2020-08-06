@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MainTable = ({mockData}) => {
+const MainTable = ({ mockData }) => {
   const classes = useStyles();
 
   const renderTable = mockData.map((data, key) => {

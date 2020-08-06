@@ -1,7 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import Loading from '../components/common/Loading';
-import ErrorMsg from '../components/common/ErrorMsg';
+import React from 'react';
+import { data } from '../components/data.js';
 import ShowInfo from '../components/common/ShowInfo'
 import Title from '../components/common/Title'
 import Main from '../components/main/Main'
@@ -30,79 +28,53 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function PageNotFound() {
-  const [mocky, setMocky] = useState();  
-  const [status, setStatus] = useState('loading');  
-
   const classes = useStyles();
-  
-  useEffect(() => {
-      const search = async () => {
-        try {
-          const  res  = await axios.get('https://run.mocky.io/v3/0203918b-54e7-4807-a8ca-d67e17c69f5a');
-          setMocky(res.data);
-        } catch(error) {
-          setStatus('error');
-          console.log(error.message); 
-        }
+ 
+  console.log(data);
+  return (
+    <div className={classes.root}>
+      <Container maxWidth="lg">
+        <Title title="Albuquerque HQ Summary" />
+        <Grid container spacing={3}>
+          <Grid item md={6}>
+            <Paper className={classes.paper}>
+              <Main mockData={data.hq} />
+            </Paper>
+          </Grid>
+          <Grid item md={6}>
+              <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={data.hq} />
+          </Grid>
+        </Grid>
 
-      };
-      search();
-  }, []);
-
-  if(mocky){
-    return (
-      <div className={classes.root}>
-        <Container maxWidth="lg">
-          <Title title="Albuquerque HQ Summary" />
-          <Grid container spacing={3}>
-            <Grid item md={6}>
-              <Paper className={classes.paper}>
-                <Main mockData={mocky.hq} />
-              </Paper>
-            </Grid>
-            <Grid item md={6}>
-                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={mocky.hq} />
-            </Grid>
+        <Title title="Albuquerque Conferrence Room Summary" />
+        <Grid container spacing={3}>
+          <Grid item md={6}>
+            <Paper className={classes.hourly}>
+              <Conference mockData={data.conference_room.usage} />
+            </Paper>
+          </Grid>
+          <Grid item md={6}>
+              <ShowInfo titleOne="Density Insights" titleTwo="Learnings" mockData={data.conference_room.usage} />
+          </Grid>
+          
+          <Grid item md={6}>
+            <Paper className={classes.hourly}>
+              <Occupancy mockData={data.conference_room.occupancy} />
+            </Paper>
+          </Grid>
+          <Grid item md={6}>
+              <ShowInfo titleOne="Meeting Size Insights" titleTwo="Learnings" mockData={data.conference_room.occupancy} />
           </Grid>
 
-          <Title title="Albuquerque Conferrence Room Summary" />
-          <Grid container spacing={3}>
-            <Grid item md={6}>
-              <Paper className={classes.hourly}>
-                <Conference mockData={mocky.conference_room.usage} />
-              </Paper>
-            </Grid>
-            <Grid item md={6}>
-                <ShowInfo titleOne="Density Insights" titleTwo="Learnings" mockData={mocky.conference_room.usage} />
-            </Grid>
-            
-            <Grid item md={6}>
-              <Paper className={classes.hourly}>
-                <Occupancy mockData={mocky.conference_room.occupancy} />
-              </Paper>
-            </Grid>
-            <Grid item md={6}>
-                <ShowInfo titleOne="Meeting Size Insights" titleTwo="Learnings" mockData={mocky.conference_room.occupancy} />
-            </Grid>
-
-            <Grid item md={6}>
-              <Paper className={classes.hourly}>
-                <Hourly mockData={mocky.conference_room.hourly} />
-              </Paper>
-            </Grid>
-            
+          <Grid item md={6}>
+            <Paper className={classes.hourly}>
+              <Hourly mockData={data.conference_room.hourly} />
+            </Paper>
           </Grid>
-        </Container>
-      </div>
-    );
-  } else if(status === "error") {
-    return (
-      <div><ErrorMsg /></div>
-    );
-  } else {
-    return (
-      <div><Loading /></div>
-    );
-  } 
-  
-}
+          
+        </Grid>
+      </Container>
+    </div>
+  );
+}   
+
