@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Hourly = ({mockData}) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('xl'));
   const handleClickOpen = () => {
@@ -58,6 +58,7 @@ const Hourly = ({mockData}) => {
           <HourlyTable mockData={mockData.table} />
         </Grid>
       </Grid>
+      
       <Box className={classes.buttons}>
         <CSVLink data={mockData.table} className={classes.link} target="_blank">
           <Button variant="outlined" color="primary">

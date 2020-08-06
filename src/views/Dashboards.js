@@ -6,6 +6,7 @@ import ErrorMsg from '../components/common/ErrorMsg';
 import ShowInfo from '../components/common/ShowInfo'
 import Title from '../components/common/Title'
 import Main from '../components/main/Main'
+import Conference from '../components/conference/Conference'
 import Hourly from '../components/hourly/Hourly'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -41,7 +42,7 @@ export default function PageNotFound() {
   // useEffect(() => {
   //     const search = async () => {
   //       try {
-  //         const  res  = await axios.get('https://run.mocky.io/v3/875eb504-4b39-4f10-b746-216d23abe07e');
+  //         const  res  = await axios.get('https://run.mocky.io/v3/0203918b-54e7-4807-a8ca-d67e17c69f5a');
   //         setMocky(res.data);
   //       } catch(error) {
   //         setStatus('error');
@@ -78,12 +79,19 @@ export default function PageNotFound() {
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Paper className={classes.hourly}>
-                <Hourly mockData={data.conference_room.hourly} />
+                <Conference mockData={data.conference_room.usage} />
               </Paper>
             </Grid>
             <Grid item md={6}>
-                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={data.hq} />
+                <ShowInfo titleOne="Density Insights" titleTwo="Learnings" mockData={data.conference_room.usage} />
             </Grid>
+
+            <Grid item md={6}>
+              <Paper className={classes.hourly}>
+                <Hourly mockData={data.conference_room.hourly} />
+              </Paper>
+            </Grid>
+            
           </Grid>
         </Container>
       </div>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import HourlyTable from '../components/HourlyTable'
+import HourlyTable from '../hourly/HourlyTable'
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 

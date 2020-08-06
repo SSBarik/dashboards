@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import TableHeader from '../common/TableHeader';
-import TableElement from './TableElement';
+import ConferenceTable from './ConferenceTable';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Main = ({mockData}) => {
+const Conference = ({mockData}) => {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('xl'));
@@ -50,11 +50,11 @@ const Main = ({mockData}) => {
 
   return (
     <div className={classes.root}>
-      <TableHeader title="Sq ft. Per Person Summary" count={"5"} subtitle="selected spaces" date={mockData.date} info={mockData.info} />
+      <TableHeader title="Conference Room Usage Summary" count={"8"} subtitle="selected spaces" date={mockData.date} info={mockData.info} />
 
       <Grid container spacing={3}>
         <Grid item md={12}>
-          <TableElement mockData={mockData.table} />
+          <ConferenceTable mockData={mockData.table} />
         </Grid>
       </Grid>
       <Box className={classes.buttons}>
@@ -76,12 +76,12 @@ const Main = ({mockData}) => {
           </Button>
         </DialogActions>
         
-        <DialogTitle id="responsive-dialog-title">{"Sq ft. Per Person Summary"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">{"Conference Room Usage Summary"}</DialogTitle>
           
         <DialogContent>
           <Grid container spacing={3}>
             <Grid item md={12}>
-              <TableElement mockData={mockData.table} />
+              <ConferenceTable mockData={mockData.table} />
             </Grid>
           </Grid>
         </DialogContent>
@@ -91,4 +91,4 @@ const Main = ({mockData}) => {
   );
 };
 
-export default Main;
+export default Conference;
