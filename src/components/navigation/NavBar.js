@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import routes from './routes'
 import { NavLink } from 'react-router-dom';
-import { Switch, Route } from 'react-router-dom';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Box from '@material-ui/core/Box';
 import PropTypes from 'prop-types';
 import {
   AppBar, Toolbar, Typography, List, ListItem,
@@ -96,18 +94,18 @@ class NavBAr extends Component{
              onKeyDown={()=>{this.setState({drawer:false})}}>
 
               <List>
-                {routes.map((route) => {
-                  const { label, icon, path } = route;
+                {routes.map((route, key) => {
                   return (
                     <NavLink
+                      key={key}
                       exact 
-                      to={path}
+                      to={route.path}
                       className={this.props.classes.nav}
                       activeClassName={this.props.classes.active}
                     >
-                      <ListItem button key={label} elevation={1}>
-                        <ListItemIcon>{icon}</ListItemIcon>
-                        <ListItemText primary={label} />
+                      <ListItem button  elevation={1}>
+                        <ListItemIcon>{route.icon}</ListItemIcon>
+                        <ListItemText primary={route.label} />
                       </ListItem>
                     </NavLink>
                   );
@@ -161,7 +159,5 @@ class NavBAr extends Component{
 NavBAr.propTypes = {
   classes : PropTypes.object.isRequired
 };
-
-
 
 export default withStyles(styleSheet)(NavBAr);
