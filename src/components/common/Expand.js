@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import TableHeader from './TableHeader';
 import HourlyTable from '../components/HourlyTable'
-import { CSVLink, CSVDownload } from "react-csv";
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 
@@ -16,26 +14,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-  buttons: {
-    padding: theme.spacing(2),
-    textAlign: 'right',
-  },
-  link: {
-    textDecoration: 'none'
-  },
-}));
-
-
-const Hourly = ({mockData}) => {
+const Expand = ({mockData}) => {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('xl'));
@@ -46,33 +25,8 @@ const Hourly = ({mockData}) => {
   const handleClose = () => {
     setOpen(false);
   };
-  const classes = useStyles();
-
-  const expand = () => {
-    console.log("expanded")
-  };
 
   return (
-    <div className={classes.root}>
-      <TableHeader title="Hourly" count="" subtitle="Ames HQ" date={mockData.date} info={mockData.info} />
-
-      <Grid container spacing={3}>
-        <Grid item md={12}>
-          <HourlyTable mockData={mockData.table} />
-        </Grid>
-      </Grid>
-      <Box className={classes.buttons}>
-        <CSVLink data={mockData.table} className={classes.link} target="_blank">
-          <Button variant="outlined" color="primary">
-            Export as CSV
-          </Button>
-        </CSVLink>
-          
-        <Button onClick={handleClickOpen} variant="outlined" color="primary">
-          Expand
-        </Button>
-      </Box>
-
       <Dialog
         fullScreen={fullScreen}
         open={open}
@@ -97,8 +51,7 @@ const Hourly = ({mockData}) => {
         </DialogContent>
         
       </Dialog>
-    </div>
   );
 };
 
-export default Hourly;
+export default Expand;
