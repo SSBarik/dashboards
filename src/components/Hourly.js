@@ -48,10 +48,6 @@ const Hourly = ({mockData}) => {
   };
   const classes = useStyles();
 
-  const expand = () => {
-    console.log("expanded")
-  };
-
   return (
     <div className={classes.root}>
       <TableHeader title="Hourly" count="" subtitle="Ames HQ" date={mockData.date} info={mockData.info} />

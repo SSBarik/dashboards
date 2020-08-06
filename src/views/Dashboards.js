@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { data } from '../components/data.js';
 import Loading from '../components/Loading';
+import ErrorMsg from '../components/ErrorMsg';
 import Main from '../components/Main'
 import ShowInfo from '../components/ShowInfo'
 import Title from '../components/Title'
@@ -34,24 +35,30 @@ export default function PageNotFound() {
   // const [mocky, setMocky] = useState([]);
   // const [main, setMain] = useState([]);
   // const [conf, setConf] = useState([]);
-  const [mocky, setMocky] = useState();
-  const [main, setMain] = useState();
-  const [conf, setConf] = useState();
-  
+  const [mocky, setMocky] = useState();  
+  const [status, setStatus] = useState('loading');  
 
   useEffect(() => {
       const search = async () => {
-        const  res  = await axios.get('https://run.mocky.io/v3/5c2abc43-1255-4f57-a7e5-6d4b54dba00f');
-        
-        setMocky(res.data);
-        setMain(res.data.hq);
-        setConf(res.data.conf);
+        try {
+          const  res  = await axios.get('https://run.mocky.io/v3/875eb504-4b39-4f10-b746-216d23abe07e');
+          setMocky(res.data);
+        } catch(error) {
+          setStatus('error');
+          console.log(error.message); 
+        }
 
       };
       search();
   }, []);
 
-  if(true){
+  // console.log(mocky)
+  // console.log(main)
+
+
+  if(mocky){
+    console.log(mocky)
+
     return (
       <div className={classes.root}>
         <Container maxWidth="lg">
@@ -59,11 +66,11 @@ export default function PageNotFound() {
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Paper className={classes.paper}>
-                <Main mockData={data.hq} />
+                <Main mockData={mocky.hq} />
               </Paper>
             </Grid>
             <Grid item md={6}>
-                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={data.hq} />
+                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={mocky.hq} />
             </Grid>
           </Grid>
 
@@ -71,20 +78,24 @@ export default function PageNotFound() {
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Paper className={classes.hourly}>
-                <Hourly mockData={data.conference_room.hourly} />
+                <Hourly mockData={mocky.conference_room.hourly} />
               </Paper>
             </Grid>
             <Grid item md={6}>
-                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={data.hq} />
+                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={mocky.hq} />
             </Grid>
           </Grid>
         </Container>
       </div>
     );
+  } else if(status === "error") {
+    return (
+      <div><ErrorMsg /></div>
+    );
   } else {
     return (
       <div><Loading /></div>
     );
-  }
+  } 
   
 }
