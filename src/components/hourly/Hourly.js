@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import TableHeader from './TableHeader';
-import HourlyTable from '../components/HourlyTable'
+import TableHeader from '../common/TableHeader';
+import HourlyTable from './HourlyTable'
+
 import { CSVLink, CSVDownload } from "react-csv";
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';

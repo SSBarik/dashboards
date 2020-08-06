@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import AppBar from './components/navigation/AppBar'
-import ResAppBar from './components/navigation/ResAppBar'
+import NavBar from './components/navigation/NavBar'
 import Dashboards from './views/Dashboards'
 import Spaces from './views/Spaces'
 import Analytics from './views/Analytics'
@@ -17,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ResAppBar />
+        <NavBar />
         <Switch>
           <Route path="/" exact component={Dashboards} />
           <Route path="/spaces" exact component={Spaces} />

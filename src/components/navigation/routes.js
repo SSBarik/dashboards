@@ -27,7 +27,7 @@ const routes = [
   {
     label: "Live",
     icon: <TimerIcon fontSize="small" />,
-    path: "/livecharts",
+    path: "/live",
   },
   {
     label: "Safe Display",

@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { data } from '../components/data.js';
-import Loading from '../components/common/Loading';
-import ErrorMsg from '../components/common/ErrorMsg';
-import ShowInfo from '../components/common/ShowInfo'
-import Title from '../components/common/Title'
-import Main from '../components/main/Main'
-import Hourly from '../components/hourly/Hourly'
+import Loading from '../components/Loading';
+import ErrorMsg from '../components/ErrorMsg';
+import Main from '../components/Main'
+import ShowInfo from '../components/ShowInfo'
+import Title from '../components/Title'
+import Hourly from '../components/Hourly'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -38,26 +38,25 @@ export default function PageNotFound() {
   const [mocky, setMocky] = useState();  
   const [status, setStatus] = useState('loading');  
 
-  // useEffect(() => {
-  //     const search = async () => {
-  //       try {
-  //         const  res  = await axios.get('https://run.mocky.io/v3/875eb504-4b39-4f10-b746-216d23abe07e');
-  //         setMocky(res.data);
-  //       } catch(error) {
-  //         setStatus('error');
-  //         console.log(error.message); 
-  //       }
+  useEffect(() => {
+      const search = async () => {
+        try {
+          const  res  = await axios.get('https://run.mocky.io/v3/875eb504-4b39-4f10-b746-216d23abe07e');
+          setMocky(res.data);
+        } catch(error) {
+          setStatus('error');
+          console.log(error.message); 
+        }
 
-  //     };
-  //     search();
-  // }, []);
+      };
+      search();
+  }, []);
 
   // console.log(mocky)
   // console.log(main)
 
 
-  if(data){
-    console.log(data)
+  if(mocky){
 
     return (
       <div className={classes.root}>
@@ -66,11 +65,11 @@ export default function PageNotFound() {
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Paper className={classes.paper}>
-                <Main mockData={data.hq} />
+                <Main mockData={mocky.hq} />
               </Paper>
             </Grid>
             <Grid item md={6}>
-                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={data.hq} />
+                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={mocky.hq} />
             </Grid>
           </Grid>
 
@@ -78,11 +77,11 @@ export default function PageNotFound() {
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Paper className={classes.hourly}>
-                <Hourly mockData={data.conference_room.hourly} />
+                <Hourly mockData={mocky.conference_room.hourly} />
               </Paper>
             </Grid>
             <Grid item md={6}>
-                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={data.hq} />
+                <ShowInfo titleOne="Sq ft. per person summary" titleTwo="Learnings" mockData={mocky.hq} />
             </Grid>
           </Grid>
         </Container>
