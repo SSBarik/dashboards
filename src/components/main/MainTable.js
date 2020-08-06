@@ -1,11 +1,9 @@
 import React from 'react';
 import ProgressBar from "../common/ProgressBar";
+
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,10 +22,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TableElement = ({mockData}) => {
+const MainTable = ({mockData}) => {
   const classes = useStyles();
 
-  const renderTable = mockData && mockData.map((data, key) => {
+  const renderTable = mockData.map((data, key) => {
     return (
     <Grid container key={key} spacing={0}>
       <Grid item xs={3}>
@@ -38,7 +36,7 @@ const TableElement = ({mockData}) => {
       </Grid>
       <Grid item xs={6}>
           <Paper className={classes.paper} elevation={0}>
-            <ProgressBar bgcolor={"#757ce8"} completed={data.density} max={200} />
+            <ProgressBar bgcolor={"#757ce8"} completed={data.density} postfix="sq.ft" max={200} />
           </Paper>
       </Grid>
     </Grid>
@@ -61,9 +59,8 @@ const TableElement = ({mockData}) => {
         
       {renderTable}
 
-      
     </div>
   );
 }
 
-export default TableElement;
+export default MainTable;

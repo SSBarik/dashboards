@@ -1,15 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { CSVLink } from "react-csv";
 import TableHeader from '../common/TableHeader';
 import HourlyTable from './HourlyTable'
 
-import { CSVLink, CSVDownload } from "react-csv";
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -21,11 +19,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
   buttons: {
     padding: theme.spacing(2),
     textAlign: 'right',
@@ -36,10 +29,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Hourly = ({mockData}) => {
+const Hourly = ({ mockData }) => {
+
   const [open, setOpen] = useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('xl'));
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -47,10 +42,12 @@ const Hourly = ({mockData}) => {
   const handleClose = () => {
     setOpen(false);
   };
+
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
+
       <TableHeader title="Hourly" count="" subtitle="Ames HQ" date={mockData.date} info={mockData.info} />
 
       <Grid container spacing={3}>
@@ -65,7 +62,7 @@ const Hourly = ({mockData}) => {
             Export as CSV
           </Button>
         </CSVLink>
-          
+
         <Button onClick={handleClickOpen} variant="outlined" color="primary">
           Expand
         </Button>

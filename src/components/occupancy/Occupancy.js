@@ -4,10 +4,8 @@ import OccupancyTable from './OccupancyTable';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -20,11 +18,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
   buttons: {
     padding: theme.spacing(2),
     textAlign: 'right',
@@ -35,10 +28,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Occupancy = ({mockData}) => {
+const Occupancy = ({ mockData }) => {
+
   const [open, setOpen] = useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('xl'));
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -46,11 +41,12 @@ const Occupancy = ({mockData}) => {
   const handleClose = () => {
     setOpen(false);
   };
+
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <TableHeader title="Occupancy Distribution Rollup" count={"8"} subtitle="selected spaces" date={mockData.date} info={mockData.info} />
+      <TableHeader title="Occupancy Distribution Rollup" count={mockData.table.length} subtitle="selected spaces" date={mockData.date} info={mockData.info} />
 
       <Grid container spacing={3}>
         <Grid item md={12}>

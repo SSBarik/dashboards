@@ -1,10 +1,9 @@
 import React from 'react';
 import ProgressBar from "../common/ProgressBar";
+
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Avatar from '@material-ui/core/Avatar';
 
 
@@ -48,7 +47,7 @@ const ConferenceTable = ({mockData}) => {
       </Grid>
       <Grid item xs={8}>
           <Paper className={classes.paper} elevation={0}>
-            <ProgressBar bgcolor={"#757ce8"} completed={data.usage} max={100} />
+            <ProgressBar bgcolor={"#757ce8"} completed={data.usage} postfix="%" max={100} />
           </Paper>
       </Grid>
     </Grid>

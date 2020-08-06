@@ -1,12 +1,7 @@
 import React from 'react';
-import ProgressBar from "../common/ProgressBar";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,11 +18,12 @@ const useStyles = makeStyles((theme) => ({
     margin: 1,
     textAlign: 'center',
     color: "white",
-    backgroundColor: '#3f51b5'
+    backgroundColor: '#757ce8'
   }
 }));
 
-const HourlyTable = ({mockData}) => {
+const HourlyTable = ({ mockData }) => {
+  
   const classes = useStyles();
   const time = ["9a","10a","11a","12p","1p","2p","3p","4p"];
 
@@ -45,7 +41,6 @@ const HourlyTable = ({mockData}) => {
           </Grid>
         );
       })}
-
     </Grid>
     );
   })
@@ -66,7 +61,7 @@ const HourlyTable = ({mockData}) => {
           <Paper className={classes.header} elevation={0}>Wed</Paper>
         </Grid>
         <Grid item xs={2}>
-          <Paper className={classes.header} elevation={0}>Thus</Paper>
+          <Paper className={classes.header} elevation={0}>Thu</Paper>
         </Grid>
         <Grid item xs={2}>
           <Paper className={classes.header} elevation={0}>Fri</Paper>
