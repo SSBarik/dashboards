@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import Main from '../components/Main'
 import ShowInfo from '../components/ShowInfo'
 import Title from '../components/Title'
+import HourlyTable from '../components/HourlyTable'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -69,8 +70,8 @@ export default function PageNotFound() {
           <Title title="Albuquerque Conferrence Room Summary" />
           <Grid container spacing={3}>
             <Grid item md={6}>
-              <Paper className={classes.paper}>
-                <Main mockData={data.hq} />
+              <Paper className={classes.hourly}>
+                <HourlyTable mockData={data.conference_room.hourly} />
               </Paper>
             </Grid>
             <Grid item md={6}>
