@@ -45,40 +45,40 @@ export const data =
             "start":"Jul 12",
             "end":"Jul 18"
          },
-         "info":"Room 204 was used 91% of the time, totalling 41 hours",   
+         "info":"Room 204 was used 91% of the time, totalling 41 hours",
          "table":[
             {
-               "count": 4,
+               "count":4,
                "room":"Room 204",
                "usage":91
             },
             {
-               "count": 10,
+               "count":10,
                "room":"Room 208",
                "usage":91
             },
             {
-               "count": 4,
+               "count":4,
                "room":"Room 205",
                "usage":85
             },
             {
-               "count": 4,
+               "count":4,
                "room":"Womens Room",
                "usage":84
             },
             {
-               "count": 4,
+               "count":4,
                "room":"Room 202",
                "usage":75
             },
             {
-               "count": 12,
+               "count":12,
                "room":"Room 207",
                "usage":72
             },
             {
-               "count": 12,
+               "count":12,
                "room":"Room 206",
                "usage":68
             }
@@ -93,7 +93,7 @@ export const data =
             "start":"Jul 12",
             "end":"Jul 18"
          },
-         "info":"When in use, groups of 2 people are in these spaces most often. Tthese groups occupied these spaces 28% of the time (around 104 hours).",   
+         "info":"When in use, groups of 2 people are in these spaces most often. Tthese groups occupied these spaces 28% of the time (around 104 hours).",
          "table":[
             {
                "people":"1",
@@ -141,60 +141,60 @@ export const data =
          "info":"Ames HQ saw the largest crowd(833) from 1-2pm on Monday",
          "table":[
             [
-               800,
-               700,
-               600,
-               500,
-               400
+               713,
+               698,
+               717,
+               692,
+               706
             ],
             [
-               800,
-               700,
-               600,
-               500,
-               400
+               803,
+               792,
+               796,
+               778,
+               789
             ],
             [
-               800,
-               700,
-               600,
-               500,
-               400
+               854,
+               837,
+               841,
+               841,
+               848
             ],
             [
-               800,
-               700,
-               600,
-               500,
-               400
+               880,
+               862,
+               858,
+               857,
+               860
             ],
             [
-               800,
-               700,
-               600,
-               500,
-               400
+               883,
+               872,
+               861,
+               854,
+               871
             ],
             [
-               800,
-               700,
-               600,
-               500,
-               400
+               876,
+               851,
+               858,
+               847,
+               862
             ],
             [
-               800,
-               700,
-               600,
-               500,
-               400
+               841,
+               851,
+               858,
+               847,
+               862
             ],
             [
-               800,
-               700,
-               600,
-               500,
-               400
+               765,
+               757,
+               754,
+               724,
+               761
             ]
          ]
       }

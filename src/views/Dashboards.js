@@ -7,6 +7,7 @@ import ShowInfo from '../components/common/ShowInfo'
 import Title from '../components/common/Title'
 import Main from '../components/main/Main'
 import Conference from '../components/conference/Conference'
+import Occupancy from '../components/occupancy/Occupancy'
 import Hourly from '../components/hourly/Hourly'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -84,6 +85,15 @@ export default function PageNotFound() {
             </Grid>
             <Grid item md={6}>
                 <ShowInfo titleOne="Density Insights" titleTwo="Learnings" mockData={data.conference_room.usage} />
+            </Grid>
+            
+            <Grid item md={6}>
+              <Paper className={classes.hourly}>
+                <Occupancy mockData={data.conference_room.occupancy} />
+              </Paper>
+            </Grid>
+            <Grid item md={6}>
+                <ShowInfo titleOne="Meeting Size Insights" titleTwo="Learnings" mockData={data.conference_room.occupancy} />
             </Grid>
 
             <Grid item md={6}>

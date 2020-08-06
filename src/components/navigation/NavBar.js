@@ -47,7 +47,7 @@ const styleSheet = {
   },
 }
 
-class NavBar extends Component{
+class NavBAr extends Component{
   constructor(props){
     super(props);
     this.state = {drawerActivate:false, drawer:false};
@@ -160,10 +160,10 @@ class NavBar extends Component{
   }
 }
 
-NavBar.propTypes = {
+NavBAr.propTypes = {
   classes : PropTypes.object.isRequired
 };
 
 
 
-export default withStyles(styleSheet)(NavBar);
+export default withStyles(styleSheet)(NavBAr);

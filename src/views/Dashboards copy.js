@@ -41,7 +41,7 @@ export default function PageNotFound() {
   useEffect(() => {
       const search = async () => {
         try {
-          const  res  = await axios.get('https://run.mocky.io/v3/875eb504-4b39-4f10-b746-216d23abe07e');
+          const  res  = await axios.get('https://run.mocky.io/v3/9ddf1d3a-2145-4021-8906-4abb280f0e01');
           setMocky(res.data);
         } catch(error) {
           setStatus('error');
