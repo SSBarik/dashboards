@@ -127,17 +127,17 @@ class NavBAr extends Component{
       <AppBar  position="fixed" color="default">
         <Toolbar  variant="dense">
           <Typography variant = "h6" className={classes.root} color="inherit" >WeTrack</Typography>
-                {routes.map((route) => {
-                  const { label, icon, path } = route;
+                {routes.map((route, key) => {
                   return (
                     <NavLink
+                      key={key}
                       exact 
-                      to={path}
+                      to={route.path}
                       className={classes.nav}
                       activeClassName={classes.active}
                     >
-                    <Typography key={label} variant = "subtitle1" className = {classes.padding} color="inherit" >
-                     {icon} {label}
+                    <Typography variant = "subtitle1" className = {classes.padding} color="inherit" >
+                     {route.icon} {route.label}
                     </Typography>
                   </NavLink>
                   );
